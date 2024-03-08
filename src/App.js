@@ -13,6 +13,7 @@ function App() {
   const [mode, setmode] = useState('light');  //weather dark mode is enabled or node
 
   const toggleMode = () => {
+    removeBodyClasses();
     if (mode === 'light') {
       setmode('dark');
       document.body.style.backgroundColor = "#04192f";
@@ -33,6 +34,26 @@ function App() {
     }
   }
 
+  // TO ADD MORE THEMES FOR COLOR
+
+  const removeBodyClasses=()=>{
+    document.body.classList.remove('bg-light');
+    document.body.classList.remove('bg-dark');
+    document.body.classList.remove('bg-primary');
+    document.body.classList.remove('bg-secondary');
+    document.body.classList.remove('bg-success');
+    document.body.classList.remove('bg-danger');
+    document.body.classList.remove('bg-warning');
+    document.body.classList.remove('bg-info');
+  }
+
+
+  const changeMode = (cls) => {
+    removeBodyClasses();
+    console.log(cls);
+    document.body.classList.add('bg-'+cls);
+  }
+
   const [alert, setAlert] = useState(null);
 
   const showAlert = (message, type) => {
@@ -48,7 +69,7 @@ function App() {
   return (
     <>
       <Router>
-        <Navbar title="TEXTUTILS" about="About" mode={mode} toggleMode={toggleMode} />
+        <Navbar title="TEXTUTILS" about="About" mode={mode} toggleMode={toggleMode} changeMode={changeMode}/>
         <Alert alert={alert} />
         <div className="container my-3">
           <Routes>

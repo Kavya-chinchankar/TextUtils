@@ -24,12 +24,24 @@ export default function Navbar(props) {
             {/* <a className="nav-link" href="/about">{props.about}</a> */}
             </li>
           </ul>
-          {/* <form className="form-inline my-2 my-lg-0">
-            <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
-            <button className="btn btn-primary my-2 my-sm-0" type="submit">Search</button>
-          </form> */}
 
-          <div className={`form-check form-switch text-${props.mode === 'light' ? 'dark':'light' }`}>
+          {/* TO ADD MORE T5HEMES COLOR */}
+          <div className="d-flex">
+            <div className="bg-primary rounded ms-2" style={{height:'20px', width:'20px', cursor:'pointer'}} onClick={()=>{props.changeMode('primary')}}>
+            </div>
+            <div className="bg-secondary rounded ms-2" style={{height:'20px', width:'20px', cursor:'pointer'}} onClick={()=>{props.changeMode('secondary')}}>
+            </div>
+            <div className="bg-success rounded ms-2" style={{height:'20px', width:'20px', cursor:'pointer'}} onClick={()=>{props.changeMode('success')}}>
+            </div>
+            <div className="bg-danger rounded ms-2" style={{height:'20px', width:'20px', cursor:'pointer'}} onClick={()=>{props.changeMode('danger')}}>
+            </div>
+            <div className="bg-warning rounded ms-2" style={{height:'20px', width:'20px', cursor:'pointer',color:'black'}} onClick={()=>{props.changeMode('warning')}}>
+            </div>
+            <div className="bg-info rounded ms-2" style={{height:'20px', width:'20px', cursor:'pointer'}} onClick={()=>{props.changeMode('info')}}>
+            </div>
+          </div>
+
+          <div className={`form-check form-switch ms-2 text-${props.mode === 'light' ? 'dark':'light' }`}>
             <input className="form-check-input" type="checkbox" id="flexSwitchCheckDefault" onClick={props.toggleMode}/>
               <label className="form-check-label" htmlFor="flexSwitchCheckDefault">Change Mode</label>
           </div>
